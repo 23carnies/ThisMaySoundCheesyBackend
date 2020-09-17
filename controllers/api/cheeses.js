@@ -1,10 +1,11 @@
 const Cheese = require('../../models/cheese')
 
 module.exports = {
-    create,
     index,
+    create,
     show,
-
+    update,
+    delete: deleteOne
   }
   
   async function create(req, res) {
@@ -28,3 +29,13 @@ module.exports = {
 		.then(cheese => {res.json(cheese)})
     .catch(err => {res.json(err)})
 	}
+
+    async function update(req, res) {
+        const updatedCheese = await Cheese.findByIdAndUpdate(req.params.id, req.body, {new: true});
+        res.status(200).json(updatedCheese);
+    }
+
+    async function deleteOne(req, res) {
+        const deletedCheese = await Cheese.findByIdAndRemove(req.params.id);
+        res.status(200).json(deletedCheese);
+    }

@@ -8,6 +8,8 @@ router.get('/', cheesesCtrl.index);
 // Protected Routes
 router.use(require('../config/auth'));
 router.get('/cheeses/:id', cheesesCtrl.show)
+router.put('/:id', cheesesCtrl.update);
+router.delete('/:id', cheesesCtrl.delete);
 
 
 function checkAuth(req, res, next) {
