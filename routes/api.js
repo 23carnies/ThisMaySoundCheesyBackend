@@ -7,10 +7,10 @@ router.get('/', cheesesCtrl.index);
 
 // Protected Routes
 router.use(require('../config/auth'));
-router.post('/', cheesesCtrl.create)
-router.get('/:id', cheesesCtrl.show)
-router.put('/:id', cheesesCtrl.update);
-router.delete('/:id', cheesesCtrl.delete);
+router.post('/', checkAuth, cheesesCtrl.create)
+router.get('/:id', checkAuth, cheesesCtrl.show)
+router.put('/:id', checkAuth, cheesesCtrl.update);
+router.delete('/:id', checkAuth, cheesesCtrl.delete);
 
 
 function checkAuth(req, res, next) {
