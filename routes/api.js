@@ -1,12 +1,14 @@
 // movies.js
 const router = require('express').Router();
-const moviesCtrl = require('../controllers/api/cheeses');
+const cheesesCtrl = require('../controllers/api/cheeses');
 
 // Public Routes
 router.get('/', cheesesCtrl.index);
 
 // Protected Routes
 router.use(require('../config/auth'));
+router.get('/cheeses/:id', cheesesCtrl.show)
+
 
 function checkAuth(req, res, next) {
   if (req.user) return next();
