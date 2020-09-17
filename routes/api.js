@@ -7,7 +7,7 @@ router.get('/', cheesesCtrl.index);
 
 // Protected Routes
 router.use(require('../config/auth'));
-router.get('/cheeses/:id', cheesesCtrl.show)
+router.get('/:id', cheesesCtrl.show)
 
 
 function checkAuth(req, res, next) {
