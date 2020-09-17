@@ -10,7 +10,6 @@ module.exports = {
   
   async function create(req, res) {
     req.body.addedBy = req.user._id
-    req.body.cast = req.body.cast.split(',');
     const cheeses = await Cheese.create(req.body)
     .then(cheese => {res.json(cheese)})
     .catch(err => {res.json(err)})
