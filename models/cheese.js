@@ -10,7 +10,8 @@ const cheeseSchema = new Schema ({
     firmness: {type: String, required: true},
     mould: Boolean,
     gasHoles: Boolean,
-    texture: String
+    texture: String,
+    user: {type: Schema.Types.ObjectId, ref: 'User'}
 }, {
     timestamps: true
 })
