@@ -11,7 +11,7 @@ const cheeseSchema = new Schema ({
     mould: Boolean,
     gasHoles: Boolean,
     texture: String,
-    user: {type: Schema.Types.ObjectId, ref: 'User'}
+    addedBy: {type: Schema.Types.ObjectId, ref: 'User'}
 }, {
     timestamps: true
 })
